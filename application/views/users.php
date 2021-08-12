@@ -1,6 +1,9 @@
 <?php include('inc/top.php') ?>
 <h1 class="text-center mt-2">Users</h1>
 <div class="container mt-5">
+
+
+
 	<a href="<?= base_url('User/add') ?>"><button class="btn btn-primary float-right mb-3">Add New</button></a>
 	<table class="table table-bordered text-center">
 		<thead>
@@ -24,8 +27,8 @@
 						<td><?= $user->email ?></td>
 						<td><?= $user->phone ?></td>
 						<td><?= $user->address ?></td>
-						<td><i class="text-info fa fa-edit"></i></td>
-						<td><i class="text-danger fa fa-trash"></i></td>
+						<td><a href="<?= base_url() ?>User/edit/<?= $user->id ?>"><i class="text-info fa fa-edit" ></i></a></td>
+						<td><a href="<?= base_url('User/delete') ?> <?= $user->id ?>"><i class="text-danger fa fa-trash"></i></td>
 					</tr>
 				<?php $i++; }
 				} else{ ?>

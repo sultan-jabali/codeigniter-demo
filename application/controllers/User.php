@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class User extends CI_Controller
 {
     public function index()
@@ -22,4 +23,22 @@ class User extends CI_Controller
 		$this->User_model->create($post_data);
         redirect('User');
     }
+
+    public function edit($id)
+    {
+        $this->load->model('User_model');
+        $data['user'] = $this->User_model->get_by_id($id);
+        $this->load->view('edit_user', $data);
+    }
+    
+    public function update()
+    {
+        $id = $this->input->post('id'); // same as $_POST['id']
+        $post_data = $this->input->post(); // same as $_POST
+
+        $this->load->model('User_model');
+        $this->User_model->update($id, $post_data);
+        redirect('User/index');
+    }
+
 }

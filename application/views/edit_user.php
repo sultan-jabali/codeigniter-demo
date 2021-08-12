@@ -14,35 +14,38 @@
 <body>
 
     <div class="container mt-2">
-        <h2>Add User</h2>
-        <form action="<?= base_url('User/create') ?>" method="post" class="needs-validation" novalidate>
+        <h2>edit User</h2>
+        <form action="<?= base_url('user/update') ?>" method="post" class="needs-validation" novalidate>
+
+            <input type="hidden" name="id" value="<?= $user->id ?>">
+
             <div class="form-group">
                 <label for="fname">First Name</label>:</label>
-                <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="first_name" required>
+                <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="first_name" required value="<?= $user->first_name ?>">
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
                 <label for="lname">Last Name</label>:</label>
-                <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="last_name" required>
+                <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="last_name" required value="<?= $user->last_name ?>">
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required value="<?= $user->email ?>">
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" required>
+                <input type="number" class="form-control" id="phone" placeholder="Enter phone" name="phone" required value="<?= $user->phone ?>">
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <input type="address" class="form-control" id="address" placeholder="Enter address" name="address" required>
+                <input type="address" class="form-control" id="address" placeholder="Enter address" name="address" required value="<?= $user->address ?>">
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
@@ -50,28 +53,3 @@
             <a href="<?= base_url('User') ?>"><button type="button" class="btn btn-success float-right mr-2">Cancel</button></a>
         </form>
     </div>
-
-    <script>
-    // Disable form submissions if there are invalid fields
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Get the forms we want to add validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-    </script>
-
-</body>
-
-</html>
