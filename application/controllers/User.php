@@ -41,4 +41,10 @@ class User extends CI_Controller
         redirect('User/index');
     }
 
+    public function delete($id) {
+        $this->load->model('User_model');
+        $this->User_model->delete($id);
+        redirect('User/index');
+    }
+
 }

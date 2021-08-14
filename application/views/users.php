@@ -28,7 +28,7 @@
 						<td><?= $user->phone ?></td>
 						<td><?= $user->address ?></td>
 						<td><a href="<?= base_url() ?>User/edit/<?= $user->id ?>"><i class="text-info fa fa-edit" ></i></a></td>
-						<td><a href="<?= base_url('User/delete') ?> <?= $user->id ?>"><i class="text-danger fa fa-trash"></i></td>
+						<td><a href="<?= base_url('User/delete/'.$user->id) ?>"><i class="text-danger fa fa-trash"></i></td>
 					</tr>
 				<?php $i++; }
 				} else{ ?>
